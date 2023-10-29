@@ -1,6 +1,5 @@
 package com.spot.saver.android.theme
 
-import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
 val ActionColor = Color(0xFF07527D)
