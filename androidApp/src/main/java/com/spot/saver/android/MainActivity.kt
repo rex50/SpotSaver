@@ -11,7 +11,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spot.saver.Greeting
@@ -25,9 +24,9 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.primary
+                    color = MaterialTheme.colorScheme.background
                 ) {
-
+                    GreetingView(Greeting().greet())
                 }
             }
         }
@@ -43,16 +42,6 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        Surface(
-            color = MaterialTheme.colorScheme.primary
-        ){
-            NavigationButton(
-                modifier =
-                Modifier.background(ActionColor, shape = RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp, bottomStart = 10.dp, bottomEnd = 10.dp))
-                    .height(62.dp)
-                    .width(61.dp)
-            )
-        }
-
+        GreetingView("Hello, Android!")
     }
 }

@@ -3,7 +3,7 @@ package com.spot.saver.android.theme
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-val ActionColor = Color(0xFF42677C)
+val ActionColor = Color(0xFF07527D)
 
 val DarkPrimaryColor = Color(0xFFBB86FC)
 val DarkSecondaryColor = Color(0xFF03DAC5)
