@@ -45,7 +45,7 @@ fun NavigationButton(
 }
 
 @Composable
-@Preview
+@ThemedComponentPreviews
 fun NavigationButtonPreview() {
     MyApplicationTheme {
         Surface(
