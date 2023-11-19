@@ -35,6 +35,7 @@ fun NavigationButton(
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_navigation),
+            tint = Color.White,
             contentDescription = null,
             modifier = Modifier
                 .height(19.dp)
@@ -47,18 +48,11 @@ fun NavigationButton(
 @Composable
 @ThemedComponentPreviews
 fun NavigationButtonPreview() {
-    MyApplicationTheme {
-        Surface(
-            color = MaterialTheme.colorScheme.primary
-        ) {
-            Box {
-                NavigationButton(
-                    modifier = Modifier
-                        .height(62.dp)
-                        .width(61.dp)
-                )
-            }
-
-        }
+    Preview {
+        NavigationButton(
+            modifier = Modifier
+                .height(62.dp)
+                .width(61.dp)
+        )
     }
 }
