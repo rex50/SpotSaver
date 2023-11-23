@@ -12,4 +12,7 @@ object SpotSaverColors  {
     val LightPrimaryColor = Color(0xFF6200EE)
     val LightSecondaryColor = Color(0xFF03DAC5)
     val LightTertiaryColor = Color(0xFF3700B3)
+
+    //  Transparent grey
+    val LightGreyColor= Color(0x80969697)
 }

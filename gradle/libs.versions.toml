@@ -1,5 +1,6 @@
 [versions]
 agp = "8.1.2"
+github-compose = "1.0.0-beta01"
 kotlin = "1.9.10"
 compose = "1.5.1"
 compose-compiler = "1.5.3"
@@ -7,6 +8,7 @@ compose-material3 = "1.1.2"
 androidx-activityCompose = "1.7.2"
 
 [libraries]
+compose = { module = "com.github.bumptech.glide:compose", version.ref = "github-compose" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
