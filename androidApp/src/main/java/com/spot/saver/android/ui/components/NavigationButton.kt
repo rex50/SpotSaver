@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui
+package com.spot.saver.android.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
