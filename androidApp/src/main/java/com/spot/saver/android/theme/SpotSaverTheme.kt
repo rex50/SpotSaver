@@ -1,4 +1,4 @@
-package com.spot.saver.android
+package com.spot.saver.android.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,7 +9,6 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,35 +25,43 @@ fun SpotSaverTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        darkColorScheme(
-            primary = DarkPrimaryColor,
-            secondary = DarkSecondaryColor,
-            tertiary = DarkTertiaryColor
-        )
+        darkColorScheme
     } else {
-        lightColorScheme(
-            primary = LightPrimaryColor,
-            secondary = LightSecondaryColor,
-            tertiary = LightTertiaryColor
-        )
+        lightColorScheme
     }
-    val typography = Typography(
-        bodyMedium = TextStyle(
-            fontFamily = FontFamily.Default,
-            fontWeight = FontWeight.Normal,
-            fontSize = 16.sp
-        )
-    )
-    val shapes = Shapes(
-        small = RoundedCornerShape(4.dp),
-        medium = RoundedCornerShape(4.dp),
-        large = RoundedCornerShape(0.dp)
-    )
 
     MaterialTheme(
         colorScheme = colors,
-        typography = typography,
+        typography = spotSaverTypography,
         shapes = shapes,
         content = content
     )
 }
+
+private val darkColorScheme = darkColorScheme(
+    primary = DarkPrimaryColor,
+    secondary = DarkSecondaryColor,
+    tertiary = DarkTertiaryColor
+)
+
+private val lightColorScheme = lightColorScheme(
+    primary = LightPrimaryColor,
+    secondary = LightSecondaryColor,
+    tertiary = LightTertiaryColor
+)
+
+private val spotSaverTypography = Typography(
+    bodyMedium = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    )
+
+    // TODO: Add more types
+)
+
+private val shapes = Shapes(
+    small = RoundedCornerShape(4.dp),
+    medium = RoundedCornerShape(4.dp),
+    large = RoundedCornerShape(0.dp)
+)
