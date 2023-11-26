@@ -2,106 +2,155 @@ package com.spot.saver.android.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
-import com.bumptech.glide.integration.compose.placeholder
 import com.spot.saver.android.R
-import com.spot.saver.android.SpotSaverTheme
 import com.spot.saver.android.theme.SpotSaverColors
+import com.spot.saver.android.ui.components.AsyncImage
+import com.spot.saver.android.ui.core.Preview
+import com.spot.saver.android.ui.core.ThemedComponentPreviews
 
-@OptIn(ExperimentalGlideComposeApi::class)
+/**
+ * Spot images content which adapts based on number of images
+ * Scenarios:
+ * 1. One image - Single image will be displayed
+ * 2. Multiple images - Back card, Image with a overlay (Front card)
+ * and on top total count will be displayed
+ */
 @Composable
 fun SpotImage(
-    url: String,
-    imageCount: Int,
-    fontCardHeightAndWidth: Int,
-    rotateBackCard: Float = -20f,
+    images: List<Any>,
     modifier: Modifier
 ) {
-    // I maintain consistent ratios for mockups across various sizes.
-    val ratio = fontCardHeightAndWidth / 10
+    if (images.isEmpty())
+        return
 
-    // here base image count we are hiding (background rotate card).
-    if (imageCount>1){
-        // background rotate card
-        Box(modifier = modifier
-            .height((fontCardHeightAndWidth - ratio).dp)
-            .width((fontCardHeightAndWidth - ratio).dp)
-            .rotate(rotateBackCard)
-            .clip(RoundedCornerShape((ratio + 2).dp))
-            .background(Color.Gray),
-        )
-    }
+    val isMoreThanOneImage = remember { images.size > 1 }
 
-    // Front card
-    Box(
-        Modifier
-            .padding(start = (ratio + 6).dp)
-            .height(fontCardHeightAndWidth.dp)
-            .width(fontCardHeightAndWidth.dp)
-            .clip(RoundedCornerShape((ratio + 2).dp)),
-        contentAlignment = Alignment.Center
-    ) {
-        //  here load image on (Front card).
-        GlideImage(
-            modifier = Modifier.fillMaxSize(),
-            model = R.drawable.test_image,
-            contentDescription = "",
-            failure = placeholder(R.drawable.alien),
-            contentScale = ContentScale.Crop
-        )
-
-        //here base image count we are hiding (transparent effect in image) & (images count text).
-        if (imageCount > 1){
-            // This used for transparent effect in image.
-            Spacer(
-                modifier = Modifier.fillMaxSize().background(SpotSaverColors.LightGreyColor)
+    BoxWithConstraints(
+        modifier = modifier
+            .aspectRatio(
+                ratio = 1f,
+                matchHeightConstraintsFirst = true
             )
-            // this used for showing images count text.
-            Text(modifier = Modifier.fillMaxWidth(), text = "+${imageCount-1}", textAlign = TextAlign.Center,fontSize = (ratio+ratio+ratio-2).sp, color = Color.White)
+    ) {
+        // Calculate adjusted sizes based on current max sizes
+        val adjustedHeight = remember { maxHeight - (maxHeight.times(.18f)) }
+        val adjustedWidth = remember { maxWidth - (maxWidth.times(.18f)) }
+        val offsetHeight = remember { maxHeight * 0.13f }
+        val offsetWidth = remember { maxWidth * 0.17f }
+        val cornerRadius = 6.dp
+
+        // Show Back card when images are more than one
+        if (isMoreThanOneImage) {
+            val backCardRotationAngle = -17f
+            // Use 90% height of the front card for Back card size
+            val adjustedBackCardSize = adjustedHeight.times(.9f)
+            Box(
+                modifier = Modifier
+                    .width(adjustedBackCardSize)
+                    // Reduce Back card height to avoid overflow due to rotation
+                    .height(adjustedBackCardSize.times(.98f))
+                    .graphicsLayer {
+                        translationX = offsetWidth
+                            .toPx()
+                            .times(0.5f)
+                        translationY = offsetHeight.toPx()
+                    }
+                    .rotate(degrees = backCardRotationAngle)
+                    .clip(shape = RoundedCornerShape(size = cornerRadius))
+                    .background(color = SpotSaverColors.ActionColor),
+            )
+        }
+
+        // Front card with overlay and text
+        Box(
+            Modifier
+                .height(if(isMoreThanOneImage) adjustedHeight else maxHeight)
+                .width(if(isMoreThanOneImage) adjustedWidth else maxWidth)
+                .graphicsLayer {
+                    if(isMoreThanOneImage) {
+                        translationX = offsetWidth.toPx()
+                        translationY = offsetHeight.toPx()
+                    }
+                }
+                .clip(shape = RoundedCornerShape(size = cornerRadius)),
+            contentAlignment = Alignment.Center
+        ) {
+            // Image on Front card.
+            AsyncImage(
+                model = images.first(),
+                modifier = Modifier.fillMaxSize(),
+                contentDescription = "Spot Image(s)",
+                contentScale = ContentScale.Crop
+            )
+
+            // Show overlay and text when images are more than one
+            if (isMoreThanOneImage) {
+                // Transparent effect in image.
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
+                )
+
+                // Count text.
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = "${images.size}",
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center,
+                    fontSize = 16.sp,
+                    color = Color.White
+                )
+            }
         }
     }
 }
 
-@Preview(showSystemUi = false)
+@ThemedComponentPreviews
 @Composable
-fun DefaultPreview() {
-    SpotSaverTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            Box(Modifier
-                .fillMaxSize()
-                .padding(start = 40.dp, top = 100.dp)) {
-                SpotImage(
-                    "https://images.unsplash.com/photo-1694457269860-b7926c29e008?auto=format&fit=crop&q=80&w=3090&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    1,
-                    100,
-                    modifier = Modifier
-                )
-            }
-        }
+private fun SpotSingleImagePreview() {
+    Preview {
+        SpotImage(
+            listOf(R.drawable.test_image),
+            modifier = Modifier
+                .height(40.dp)
+        )
+    }
+}
+
+@ThemedComponentPreviews
+@Composable
+private fun SpotMultipleImagePreview() {
+    Preview {
+        SpotImage(
+            listOf(
+                R.drawable.test_image,
+                R.drawable.test_image
+            ),
+            modifier = Modifier
+                .height(40.dp)
+        )
     }
 }
