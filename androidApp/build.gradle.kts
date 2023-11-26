@@ -47,5 +47,5 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
 
     // Using this library for Load images
-    implementation(libs.compose)
+    implementation(libs.glide.compose)
 }
