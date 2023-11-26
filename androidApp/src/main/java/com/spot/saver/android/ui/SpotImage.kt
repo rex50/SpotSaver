@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.spot.saver.android.R
@@ -63,33 +64,16 @@ fun SpotImage(
 
         // Show Back card when images are more than one
         if (isMoreThanOneImage) {
-            val backCardRotationAngle = -17f
-            // Use 90% height of the front card for Back card size
-            val adjustedBackCardSize = adjustedHeight.times(.9f)
-            Box(
-                modifier = Modifier
-                    .width(adjustedBackCardSize)
-                    // Reduce Back card height to avoid overflow due to rotation
-                    .height(adjustedBackCardSize.times(.98f))
-                    .graphicsLayer {
-                        translationX = offsetWidth
-                            .toPx()
-                            .times(0.5f)
-                        translationY = offsetHeight.toPx()
-                    }
-                    .rotate(degrees = backCardRotationAngle)
-                    .clip(shape = RoundedCornerShape(size = cornerRadius))
-                    .background(color = SpotSaverColors.ActionColor),
-            )
+            BackCard(adjustedHeight, offsetWidth, offsetHeight, cornerRadius)
         }
 
         // Front card with overlay and text
         Box(
             Modifier
-                .height(if(isMoreThanOneImage) adjustedHeight else maxHeight)
-                .width(if(isMoreThanOneImage) adjustedWidth else maxWidth)
+                .height(if (isMoreThanOneImage) adjustedHeight else maxHeight)
+                .width(if (isMoreThanOneImage) adjustedWidth else maxWidth)
                 .graphicsLayer {
-                    if(isMoreThanOneImage) {
+                    if (isMoreThanOneImage) {
                         translationX = offsetWidth.toPx()
                         translationY = offsetHeight.toPx()
                     }
@@ -107,25 +91,65 @@ fun SpotImage(
 
             // Show overlay and text when images are more than one
             if (isMoreThanOneImage) {
-                // Transparent effect in image.
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
-                )
-
-                // Count text.
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = "${images.size}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Center,
-                    fontSize = 16.sp,
-                    color = Color.White
-                )
+                ImageOverlayAndCount(count = images.size)
             }
         }
     }
+}
+
+/**
+ * Displays Back with modifications
+ */
+@Composable
+private fun BackCard(
+    adjustedHeight: Dp,
+    offsetWidth: Dp,
+    offsetHeight: Dp,
+    cornerRadius: Dp
+) {
+    val backCardRotationAngle = -17f
+    // Use 90% height of the front card for Back card size
+    val adjustedBackCardSize = adjustedHeight.times(.9f)
+    Box(
+        modifier = Modifier
+            .width(adjustedBackCardSize)
+            // Reduce Back card height to avoid overflow due to rotation
+            .height(adjustedBackCardSize.times(.98f))
+            .graphicsLayer {
+                translationX = offsetWidth
+                    .toPx()
+                    .times(0.5f)
+                translationY = offsetHeight.toPx()
+            }
+            .rotate(degrees = backCardRotationAngle)
+            .clip(shape = RoundedCornerShape(size = cornerRadius))
+            .background(color = SpotSaverColors.ActionColor),
+    )
+}
+
+/**
+ * Displays overlay and count
+ */
+@Composable
+private fun ImageOverlayAndCount(
+    count: Int
+) {
+    // Transparent effect in image.
+    Spacer(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
+    )
+
+    // Count text.
+    Text(
+        modifier = Modifier.fillMaxWidth(),
+        text = "$count",
+        style = MaterialTheme.typography.bodyLarge,
+        textAlign = TextAlign.Center,
+        fontSize = 16.sp,
+        color = Color.White
+    )
 }
 
 @ThemedComponentPreviews
