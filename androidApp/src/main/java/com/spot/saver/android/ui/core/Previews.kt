@@ -1,13 +1,23 @@
 package com.spot.saver.android.ui.core
 
 import android.content.res.Configuration.*
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview as ComposePreview
 
+/**
+ * Generates Light and Dark theme preview of the component
+ *
+ * Note: Use [Preview] which allows to view component with different themes
+ */
 @LightThemePreview
 @DarkThemePreview
 annotation class ThemedComponentPreviews
 
-@Preview(
+/**
+ * Generates Light theme preview of the component
+ *
+ * Note: Use [Preview] which allows to view component with different themes
+ */
+@ComposePreview(
     name = "Light Theme",
     group = "Component Theme",
     showBackground = true,
@@ -15,7 +25,12 @@ annotation class ThemedComponentPreviews
 )
 annotation class LightThemePreview
 
-@Preview(
+/**
+ * Generates Dark theme preview of the component
+ *
+ * Note: Use [Preview] which allows to view component with different themes
+ */
+@ComposePreview(
     name = "Dark Theme",
     group = "Component Theme",
     showBackground = true,

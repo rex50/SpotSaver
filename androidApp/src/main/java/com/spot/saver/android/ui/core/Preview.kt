@@ -7,8 +7,15 @@ import androidx.compose.ui.Modifier
 import com.spot.saver.android.theme.SpotSaverTheme
 
 /**
- * Utility method used for Previewing a
+ * Utility method for Previewing a
  * composable component with proper theme
+ *
+ * Usage:
+ * ```
+ * Preview {
+ *    // Your component
+ * }
+ * ```
  */
 @Composable
 fun Preview(
