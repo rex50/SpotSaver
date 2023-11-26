@@ -51,13 +51,56 @@ private val lightColorScheme = lightColorScheme(
 )
 
 private val spotSaverTypography = Typography(
+    headlineLarge = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.Bold,
+        fontSize = 28.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 20.sp
+    ),
+    titleMedium = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp
+    ),
+    titleSmall = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp
+    ),
     bodyMedium = TextStyle(
         fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 12.sp
+    ),
+    labelMedium = TextStyle(
+        fontFamily = sourceSans3Family,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
-
-    // TODO: Add more types
+        fontSize = 12.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = sourceSans3Family,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 10.sp
+    ),
 )
 
 private val shapes = Shapes(
