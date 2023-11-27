@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui
+package com.spot.saver.android.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.spot.saver.android.R
 import com.spot.saver.android.theme.SpotSaverColors
-import com.spot.saver.android.ui.components.AsyncImage
 import com.spot.saver.android.ui.core.Preview
 import com.spot.saver.android.ui.core.ThemedComponentPreviews
 
