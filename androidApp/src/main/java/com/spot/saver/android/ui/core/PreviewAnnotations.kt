@@ -46,7 +46,7 @@ annotation class DarkThemePreview
  */
 @LightThemeDevicePreview
 @DarkThemeDevicePreview
-annotation class ThemedDevicePreview
+annotation class ThemedDevicePreviews
 
 /**
  * Generates Light theme preview of the
