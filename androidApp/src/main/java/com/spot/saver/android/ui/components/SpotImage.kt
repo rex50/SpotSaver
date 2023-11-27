@@ -122,7 +122,7 @@ private fun BackCard(
             }
             .rotate(degrees = backCardRotationAngle)
             .clip(shape = RoundedCornerShape(size = cornerRadius))
-            .background(color = SpotSaverColors.ActionColor),
+            .background(color = MaterialTheme.colorScheme.primary),
     )
 }
 
@@ -137,7 +137,7 @@ private fun ImageOverlayAndCount(
     Spacer(
         modifier = Modifier
             .fillMaxSize()
-            .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
+            .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.5f))
     )
 
     // Count text.
