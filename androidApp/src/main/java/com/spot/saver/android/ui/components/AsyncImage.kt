@@ -20,7 +20,7 @@ fun AsyncImage(
     modifier: Modifier = Modifier,
     loading: Placeholder? = null,
     failure: Placeholder? = null,
-    contentScale: ContentScale
+    contentScale: ContentScale = ContentScale.Fit
 ) {
     GlideImage(
         modifier = modifier,
