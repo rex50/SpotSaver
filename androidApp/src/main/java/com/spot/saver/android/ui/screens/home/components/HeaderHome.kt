@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.screens.home
+package com.spot.saver.android.ui.screens.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,6 +11,7 @@ import com.spot.saver.android.ui.components.ProfileImage
 import com.spot.saver.android.ui.components.SearchBoxButton
 import com.spot.saver.android.ui.core.Preview
 import com.spot.saver.android.ui.core.ThemedComponentPreviews
+import com.spot.saver.android.ui.screens.home.HomePage
 
 /**
  * Header component for [HomePage]
