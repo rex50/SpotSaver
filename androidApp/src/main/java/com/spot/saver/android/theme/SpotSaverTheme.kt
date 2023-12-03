@@ -59,7 +59,7 @@ private val spotSaverTypography = Typography(
     headlineMedium = TextStyle(
         fontFamily = sourceSans3Family,
         fontWeight = FontWeight.Bold,
-        fontSize = 28.sp
+        fontSize = 20.sp
     ),
     headlineSmall = TextStyle(
         fontFamily = sourceSans3Family,
