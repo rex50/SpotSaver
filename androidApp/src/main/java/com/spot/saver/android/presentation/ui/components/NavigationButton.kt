@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
-import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
@@ -25,7 +24,7 @@ fun NavigationButton(
     Box(
         modifier = modifier
             .background(
-                MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.primary,
                 shape = RoundedCornerShape(
                     topStart = 10.dp,
                     topEnd = 10.dp,

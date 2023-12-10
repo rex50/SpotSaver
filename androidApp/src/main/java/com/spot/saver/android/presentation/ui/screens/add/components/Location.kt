@@ -29,7 +29,7 @@ fun Location() {
         Text(
             text = stringResource(id = R.string.location),
             style = MaterialTheme.typography.bodyLarge,
-            color = SpotSaverColors.LightBlueColor
+            color = MaterialTheme.colorScheme.secondary
         )
         Row(
             modifier = Modifier

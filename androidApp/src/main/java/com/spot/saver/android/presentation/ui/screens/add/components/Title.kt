@@ -49,15 +49,15 @@ fun Title() {
             Text(
                 text = stringResource(R.string.what_should_we_name_it),
                 style = MaterialTheme.typography.titleSmall,
-                color = SpotSaverColors.EditTextBlueColor,
+                color = MaterialTheme.colorScheme.tertiary,
             )
         },
         colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = SpotSaverColors.EditTextBlueColor,
-            unfocusedBorderColor = SpotSaverColors.EditTextBlueColor,
-            cursorColor = SpotSaverColors.LightBlueColor,
-            focusedContainerColor = SpotSaverColors.EditTextBgColor,
-            unfocusedContainerColor = SpotSaverColors.EditTextBgColor,
+            focusedBorderColor = MaterialTheme.colorScheme.tertiary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.tertiary,
+            cursorColor = MaterialTheme.colorScheme.secondary,
+            focusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+            unfocusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
         ),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
     )

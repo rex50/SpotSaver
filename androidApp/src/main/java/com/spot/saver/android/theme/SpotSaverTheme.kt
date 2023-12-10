@@ -15,9 +15,15 @@ import androidx.compose.ui.unit.sp
 import com.spot.saver.android.theme.SpotSaverColors.DarkPrimaryColor
 import com.spot.saver.android.theme.SpotSaverColors.DarkSecondaryColor
 import com.spot.saver.android.theme.SpotSaverColors.DarkTertiaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightOnPrimaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightOnSecondaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightOnTertiaryColor
 import com.spot.saver.android.theme.SpotSaverColors.LightPrimaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightPrimaryContainerColor
 import com.spot.saver.android.theme.SpotSaverColors.LightSecondaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightSecondaryContainerColor
 import com.spot.saver.android.theme.SpotSaverColors.LightTertiaryColor
+import com.spot.saver.android.theme.SpotSaverColors.LightTertiaryContainerColor
 
 @Composable
 fun SpotSaverTheme(
@@ -46,8 +52,14 @@ private val darkColorScheme = darkColorScheme(
 
 private val lightColorScheme = lightColorScheme(
     primary = LightPrimaryColor,
+    onPrimary = LightOnPrimaryColor,
+    primaryContainer = LightPrimaryContainerColor,
     secondary = LightSecondaryColor,
-    tertiary = LightTertiaryColor
+    onSecondary = LightOnSecondaryColor,
+    secondaryContainer = LightSecondaryContainerColor,
+    tertiary = LightTertiaryColor,
+    onTertiary = LightOnTertiaryColor,
+    tertiaryContainer = LightTertiaryContainerColor
 )
 
 private val spotSaverTypography = Typography(
@@ -59,7 +71,7 @@ private val spotSaverTypography = Typography(
     headlineMedium = TextStyle(
         fontFamily = sourceSans3Family,
         fontWeight = FontWeight.Bold,
-        fontSize = 28.sp
+        fontSize = 20.sp
     ),
     headlineSmall = TextStyle(
         fontFamily = sourceSans3Family,
