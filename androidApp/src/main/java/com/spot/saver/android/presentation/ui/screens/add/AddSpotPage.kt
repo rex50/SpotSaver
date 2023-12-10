@@ -70,3 +70,11 @@ fun AddSpotUi() {
     }
 
 }
+
+@ThemedComponentPreviews
+@Composable
+private fun PreviewAddSpotUi() {
+    Preview {
+        AddSpotUi()
+    }
+}
