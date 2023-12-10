@@ -15,4 +15,5 @@ object SpotSaverColors  {
 
     val LightGreyColor = Color(0xFFE2F5FF)
     val LightBlueColor = Color(0xFF8FB5CB)
+    val MutedBlueColor = Color(0xFF42677C)
 }

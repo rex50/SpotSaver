@@ -5,4 +5,6 @@
     <string name="desc_add_new_spot_button_image">Add new spot button image</string>
     <string name="desc_add_new_spot_button_icon">Add new spot button icon</string>
     <string name="add_new_spot">Add new spot</string>
+    <string name="saved_spots">%1$s Saved spots</string>
+    <string name="sorted_by">Sorted by</string>
 </resources>
