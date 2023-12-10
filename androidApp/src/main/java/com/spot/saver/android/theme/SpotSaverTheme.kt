@@ -41,7 +41,7 @@ fun SpotSaverTheme(
 private val darkColorScheme = darkColorScheme(
     primary = DarkPrimaryColor,
     secondary = DarkSecondaryColor,
-    tertiary = DarkTertiaryColor
+    tertiary = DarkTertiaryColor,
 )
 
 private val lightColorScheme = lightColorScheme(

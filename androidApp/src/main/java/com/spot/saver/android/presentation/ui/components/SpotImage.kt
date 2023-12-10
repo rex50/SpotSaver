@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.components
+package com.spot.saver.android.presentation.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -27,8 +27,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.spot.saver.android.R
 import com.spot.saver.android.theme.SpotSaverColors
-import com.spot.saver.android.ui.core.Preview
-import com.spot.saver.android.ui.core.ThemedComponentPreviews
+import com.spot.saver.android.presentation.ui.core.Preview
+import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
 /**
  * Spot images content which adapts based on number of images
@@ -122,7 +122,7 @@ private fun BackCard(
             }
             .rotate(degrees = backCardRotationAngle)
             .clip(shape = RoundedCornerShape(size = cornerRadius))
-            .background(color = SpotSaverColors.ActionColor),
+            .background(color = MaterialTheme.colorScheme.primary),
     )
 }
 
@@ -137,7 +137,7 @@ private fun ImageOverlayAndCount(
     Spacer(
         modifier = Modifier
             .fillMaxSize()
-            .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
+            .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.5f))
     )
 
     // Count text.

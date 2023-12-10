@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.components
+package com.spot.saver.android.presentation.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,8 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
 import com.spot.saver.android.theme.SpotSaverColors
-import com.spot.saver.android.ui.core.Preview
-import com.spot.saver.android.ui.core.ThemedComponentPreviews
+import com.spot.saver.android.presentation.ui.core.Preview
+import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
 @Composable
 fun NavigationButton(
@@ -24,7 +25,7 @@ fun NavigationButton(
     Box(
         modifier = modifier
             .background(
-                SpotSaverColors.ActionColor,
+                MaterialTheme.colorScheme.primary,
                 shape = RoundedCornerShape(
                     topStart = 10.dp,
                     topEnd = 10.dp,
