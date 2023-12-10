@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.components
+package com.spot.saver.android.presentation.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,10 +19,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
-import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.android.theme.pacificoFamily
-import com.spot.saver.android.ui.core.Preview
-import com.spot.saver.android.ui.core.ThemedComponentPreviews
+import com.spot.saver.android.presentation.ui.core.Preview
+import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
 @Composable
 fun AppHeader(
@@ -62,7 +61,7 @@ fun AppTitle(title: String, onBackClick: (() -> Unit)?) {
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_back_arrow),
-                    contentDescription = "back arrow",
+                    contentDescription = stringResource(id = R.string.back_arrow),
                     tint = MaterialTheme.colorScheme.primary
                 )
             }
@@ -82,7 +81,7 @@ fun AppTitle(title: String, onBackClick: (() -> Unit)?) {
 
 @Composable
 @ThemedComponentPreviews
-fun PreviewAppTitle() {
+private fun PreviewAppTitle() {
 
     Preview {
         AppHeader(
