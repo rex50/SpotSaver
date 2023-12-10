@@ -8,5 +8,6 @@
     <string name="map">Map</string>
     <string name="back_arrow">back arrow</string>
     <string name="edit_marker">Edit Marker</string>
+    <string name="what_should_we_name_it">What should we name it?</string>
 
 </resources>
