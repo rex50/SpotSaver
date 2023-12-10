@@ -1,4 +1,4 @@
-package com.spot.saver.android.presentation.ui.screens.home
+package com.spot.saver.android.presentation.ui.screens.home.components
 
 
 import androidx.compose.foundation.clickable

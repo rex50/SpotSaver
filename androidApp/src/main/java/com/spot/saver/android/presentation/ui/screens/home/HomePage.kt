@@ -15,6 +15,8 @@ import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedDevicePreviews
 import com.spot.saver.android.presentation.ui.components.SavedSpotsHeader
 import com.spot.saver.android.presentation.ui.components.SpotCardContent
+import com.spot.saver.android.presentation.ui.screens.home.components.AddNewSpotButton
+import com.spot.saver.android.presentation.ui.screens.home.components.HeaderHome
 
 /**
  * Home page
