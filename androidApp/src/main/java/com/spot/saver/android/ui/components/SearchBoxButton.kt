@@ -17,7 +17,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
-import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.android.theme.pacificoFamily
 import com.spot.saver.android.ui.core.Preview
 import com.spot.saver.android.ui.core.ThemedComponentPreviews
@@ -35,7 +34,7 @@ fun SearchBoxButton(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .background(
-                color = SpotSaverColors.LightGreyColor,
+                color = MaterialTheme.colorScheme.primaryContainer,
                 shape = CircleShape
             )
             .clip(CircleShape)
@@ -44,7 +43,7 @@ fun SearchBoxButton(
             }
             .border(
                 width = 1.dp,
-                color = SpotSaverColors.LightBlueColor,
+                color = MaterialTheme.colorScheme.tertiary,
                 shape = CircleShape
             )
             .padding(

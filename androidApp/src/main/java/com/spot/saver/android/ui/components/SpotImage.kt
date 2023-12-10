@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.spot.saver.android.R
-import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.android.ui.core.Preview
 import com.spot.saver.android.ui.core.ThemedComponentPreviews
 
@@ -122,7 +121,7 @@ private fun BackCard(
             }
             .rotate(degrees = backCardRotationAngle)
             .clip(shape = RoundedCornerShape(size = cornerRadius))
-            .background(color = SpotSaverColors.ActionColor),
+            .background(color = MaterialTheme.colorScheme.primary),
     )
 }
 
@@ -137,7 +136,7 @@ private fun ImageOverlayAndCount(
     Spacer(
         modifier = Modifier
             .fillMaxSize()
-            .background(SpotSaverColors.ActionColor.copy(alpha = 0.5f))
+            .background(color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f))
     )
 
     // Count text.

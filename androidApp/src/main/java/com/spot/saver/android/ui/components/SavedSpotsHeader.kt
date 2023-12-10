@@ -16,7 +16,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
-import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.android.ui.core.Preview
 import com.spot.saver.android.ui.core.ThemedComponentPreviews
 
@@ -40,7 +39,7 @@ fun SavedSpotsHeader(
         Text(
             text = stringResource(R.string.saved_spots, savedSpotsSize),
             style = MaterialTheme.typography.bodyLarge,
-            color = SpotSaverColors.MutedBlueColor
+            color = MaterialTheme.colorScheme.secondary
         )
 
         // Sorting option
@@ -54,18 +53,18 @@ fun SavedSpotsHeader(
             Text(
                 text = stringResource(R.string.sorted_by) + " ",
                 style = MaterialTheme.typography.labelMedium,
-                color = SpotSaverColors.MutedBlueColor
+                color = MaterialTheme.colorScheme.secondary
             )
             Text(
                 text = sortedBy,
                 style = MaterialTheme.typography.bodyMedium,
-                color = SpotSaverColors.MutedBlueColor
+                color = MaterialTheme.colorScheme.secondary
             )
             Spacer(modifier = Modifier.width(6.dp))
             Icon(
                 painter = painterResource(id = R.drawable.ic_arrow_down),
                 contentDescription = stringResource(R.string.sorted_by),
-                tint = SpotSaverColors.MutedBlueColor
+                tint = MaterialTheme.colorScheme.secondary
             )
         }
     }
