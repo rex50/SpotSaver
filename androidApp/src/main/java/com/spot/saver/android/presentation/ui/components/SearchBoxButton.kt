@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.components
+package com.spot.saver.android.presentation.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -18,9 +18,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
 import com.spot.saver.android.theme.pacificoFamily
-import com.spot.saver.android.ui.core.Preview
-import com.spot.saver.android.ui.core.ThemedComponentPreviews
-import com.spot.saver.android.ui.screens.home.HomePage
+import com.spot.saver.android.presentation.ui.core.Preview
+import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
+import com.spot.saver.android.presentation.ui.screens.home.HomePage
 
 /**
  * Search button component for [HomePage]

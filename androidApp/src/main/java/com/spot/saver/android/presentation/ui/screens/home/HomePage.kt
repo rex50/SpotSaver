@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.screens.home
+package com.spot.saver.android.presentation.ui.screens.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,12 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.spot.saver.android.R
-import com.spot.saver.android.ui.core.Preview
-import com.spot.saver.android.ui.core.ThemedDevicePreviews
-import com.spot.saver.android.ui.screens.home.components.AddNewSpotButton
-import com.spot.saver.android.ui.screens.home.components.HeaderHome
-import com.spot.saver.android.ui.components.SavedSpotsHeader
-import com.spot.saver.android.ui.components.SpotCardContent
+import com.spot.saver.android.presentation.ui.core.Preview
+import com.spot.saver.android.presentation.ui.core.ThemedDevicePreviews
+import com.spot.saver.android.presentation.ui.components.SavedSpotsHeader
+import com.spot.saver.android.presentation.ui.components.SpotCardContent
 
 /**
  * Home page
