@@ -1,4 +1,4 @@
-package com.spot.saver.android.utils
+package com.spot.saver.android.presentation.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalDensity

@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.core
+package com.spot.saver.android.presentation.ui.core
 
 import android.content.res.Configuration.*
 import androidx.compose.ui.tooling.preview.Preview

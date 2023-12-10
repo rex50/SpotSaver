@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.core
+package com.spot.saver.android.presentation.ui.core
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Surface
