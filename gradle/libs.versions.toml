@@ -7,17 +7,21 @@ compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
 compose-constraintlayout = "1.0.1"
 androidx-activityCompose = "1.7.2"
+androidx-lifecycle = "2.6.2"
+coroutines-core = "1.7.3"
 
 [libraries]
 glide-compose = { module = "com.github.bumptech.glide:compose", version.ref = "glide-compose" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-lifecyle = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-constraintlayout"  }
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core"  }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
