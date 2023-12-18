@@ -48,7 +48,7 @@ fun SpotDetailsListItem(
                     // expecting in "5th feb" format
                     append(spotDetailUiModel.createdDate)
                 }
-                append(" at")
+                append(" at ")
                 // expecting "City, State" format
                 append(spotDetailUiModel.displayLocation)
             },
