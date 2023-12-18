@@ -1,4 +1,4 @@
-package com.spot.saver.android.presentation.ui.components
+ package com.spot.saver.android.presentation.ui.components.spotcard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.spot.saver.android.R
+import com.spot.saver.android.presentation.ui.components.AsyncImage
 import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
@@ -38,13 +39,11 @@ import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
  */
 @Composable
 fun SpotImage(
-    images: List<Any>,
-    modifier: Modifier
+    image: Any,
+    totalImages: Int,
+    modifier: Modifier = Modifier
 ) {
-    if (images.isEmpty())
-        return
-
-    val isMoreThanOneImage = remember { images.size > 1 }
+    val isMoreThanOneImage = remember { totalImages > 1 }
 
     BoxWithConstraints(
         modifier = modifier
@@ -81,7 +80,7 @@ fun SpotImage(
         ) {
             // Image on Front card.
             AsyncImage(
-                model = images.first(),
+                model = image,
                 modifier = Modifier.fillMaxSize(),
                 contentDescription = "Spot Image(s)",
                 contentScale = ContentScale.Crop
@@ -89,7 +88,7 @@ fun SpotImage(
 
             // Show overlay and text when images are more than one
             if (isMoreThanOneImage) {
-                ImageOverlayAndCount(count = images.size)
+                ImageOverlayAndCount(count = totalImages)
             }
         }
     }
@@ -155,7 +154,8 @@ private fun ImageOverlayAndCount(
 private fun SpotSingleImagePreview() {
     Preview {
         SpotImage(
-            listOf(R.drawable.test_image),
+            image = R.drawable.test_image,
+            totalImages = 1,
             modifier = Modifier
                 .height(40.dp)
         )
@@ -167,10 +167,8 @@ private fun SpotSingleImagePreview() {
 private fun SpotMultipleImagePreview() {
     Preview {
         SpotImage(
-            listOf(
-                R.drawable.test_image,
-                R.drawable.test_image
-            ),
+            image = R.drawable.test_image,
+            totalImages = 3,
             modifier = Modifier
                 .height(40.dp)
         )

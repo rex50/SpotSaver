@@ -1,6 +1,7 @@
-package com.spot.saver.android.presentation.ui.components
+package com.spot.saver.android.presentation.ui.components.spotcard
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -10,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -17,21 +19,30 @@ import com.spot.saver.android.R
 import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
+/**
+ * Spot card navigation button
+ */
 @Composable
 fun NavigationButton(
-    modifier: Modifier
+    modifier: Modifier = Modifier,
+    onNavigateClicked: () -> Unit
 ) {
     Box(
         modifier = modifier
-            .background(
-                color = MaterialTheme.colorScheme.primary,
+            .clip(
                 shape = RoundedCornerShape(
                     topStart = 10.dp,
                     topEnd = 10.dp,
                     bottomStart = 10.dp,
                     bottomEnd = 10.dp
                 )
-            ),
+            )
+            .background(
+                color = MaterialTheme.colorScheme.primary
+            )
+            .clickable {
+                onNavigateClicked()
+            },
         contentAlignment = Alignment.Center
     ) {
         Icon(
@@ -54,6 +65,8 @@ fun NavigationButtonPreview() {
             modifier = Modifier
                 .height(62.dp)
                 .width(61.dp)
-        )
+        ) {
+
+        }
     }
 }

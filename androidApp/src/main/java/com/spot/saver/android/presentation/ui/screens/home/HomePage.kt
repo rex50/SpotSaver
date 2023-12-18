@@ -63,7 +63,9 @@ fun HomePage() {
                 AddNewSpotButton(
                     modifier = Modifier
                         .padding(vertical = 8.dp)
-                ) {}
+                ) {
+                    // TODO: handle add new button click event
+                }
             }
 
             item {
@@ -79,10 +81,14 @@ fun HomePage() {
 
             items(mySpots) { spot ->
                 SpotCardListItem(
-                    spotDetails = spot
-                ) {
-                    // TODO: Handle spot click event
-                }
+                    spotDetails = spot,
+                    onSpotClicked = {
+                        // TODO: handle spot click event
+                    },
+                    onNavigateClicked = {
+                        // TODO: handle spot navigate button click event
+                    }
+                )
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }
