@@ -1,8 +1,10 @@
+# SpotSaver
+[![GitHub license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
 <p align="center">
   <img src="other/art/cover.png"/>
 </p>
 
-# SpotSaver
 A utility app for saving and navigating locations. Features include requesting fine location permission, saving multiple locations with tags, navigating to saved spots via Maps, auto-delete options (e.g., 5 hrs, 1 week), and the ability to add a reference snap for each spot
 
 ## App Design
@@ -10,6 +12,8 @@ A utility app for saving and navigating locations. Features include requesting f
 2. [Prototype](https://www.figma.com/proto/xg432xwCA8oyhtC7MlfUuv/Spot-Saver?page-id=0%3A1&type=design&node-id=1-2&viewport=-603%2C662%2C0.64&t=LMP8AwMt8L5TeGrj-1&scaling=scale-down&starting-point-node-id=1%3A2&mode=design)
 
 ## Contributors
+Our rockstars 🤘   
+
 [![SpotSaver Contributors](https://contrib.rocks/image?repo=rex50/SpotSaver)](https://github.com/rex50/SpotSaver/graphs/contributors)
 
 ## Helpful Live templates
