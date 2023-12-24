@@ -8,6 +8,7 @@ compose-material3 = "1.1.2"
 compose-constraintlayout = "1.0.1"
 androidx-activityCompose = "1.7.2"
 androidx-lifecycle = "2.6.2"
+koin = "3.3.2"
 coroutines-core = "1.7.3"
 
 [libraries]
@@ -21,6 +22,8 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-constraintlayout"  }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"  }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"  }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core"  }
 
 [plugins]

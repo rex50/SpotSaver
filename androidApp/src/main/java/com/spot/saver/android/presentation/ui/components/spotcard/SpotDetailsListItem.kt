@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.spot.saver.models.ui.SpotDetailUiModel
+import com.spot.saver.view.model.SpotDetailUiModel
 import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 import com.spot.saver.android.theme.SpotSaverColors

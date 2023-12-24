@@ -1,4 +1,4 @@
-package com.spot.saver.models.ui
+package com.spot.saver.view.model
 
 import com.spot.saver.enums.LabelType
 

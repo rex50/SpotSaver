@@ -28,7 +28,7 @@ import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedDevicePreviews
 import com.spot.saver.android.presentation.ui.screens.home.components.AddNewSpotButton
 import com.spot.saver.android.presentation.ui.screens.home.components.HeaderHome
-import com.spot.saver.viewmodel.HomePageViewModel
+import com.spot.saver.view.viewmodel.HomePageViewModel
 
 /**
  * Home page
@@ -42,7 +42,7 @@ fun HomePage() {
         HomePageViewModel()
     }
 
-    val mySpots by viewModel.savedSpots.collectAsState()
+    val savedSpotsData by viewModel.savedSpots.collectAsState()
 
     val lazyListState = rememberLazyListState()
 
@@ -88,7 +88,7 @@ fun HomePage() {
 
             stickyHeader {
                 SavedSpotsHeader(
-                    savedSpotsSize = mySpots.size,
+                    savedSpotsSize = savedSpotsData.size,
                     sortedBy = "Expiring date",
                     modifier = Modifier
                         .then(if (elevateSavedSpotsHeader) Modifier.shadow(8.dp) else Modifier)
@@ -100,7 +100,7 @@ fun HomePage() {
                 }
             }
 
-            items(mySpots) { spot ->
+            items(savedSpotsData) { spot ->
                 SpotCardListItem(
                     modifier = Modifier
                         .padding(horizontal = 20.dp),

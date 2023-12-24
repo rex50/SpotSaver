@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import com.spot.saver.android.data.enums.SpotLabelColors
 import com.spot.saver.android.theme.SpotSaverColors
 import com.spot.saver.enums.LabelType
-import com.spot.saver.models.ui.SpotLabelUiModel
+import com.spot.saver.view.model.SpotLabelUiModel
 
 /**
  * Returns [SpotLabelColors] based on [LabelType]

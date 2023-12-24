@@ -1,8 +1,8 @@
 package com.spot.saver.util
 
 import com.spot.saver.enums.LabelType
-import com.spot.saver.models.ui.SpotDetailUiModel
-import com.spot.saver.models.ui.SpotLabelUiModel
+import com.spot.saver.view.model.SpotDetailUiModel
+import com.spot.saver.view.model.SpotLabelUiModel
 
 /**
  * Dummy spot detail item

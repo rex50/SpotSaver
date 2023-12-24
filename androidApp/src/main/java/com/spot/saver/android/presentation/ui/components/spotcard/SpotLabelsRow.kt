@@ -8,7 +8,7 @@ import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 import com.spot.saver.android.presentation.ui.extensions.colors
 import com.spot.saver.enums.LabelType
-import com.spot.saver.models.ui.SpotLabelUiModel
+import com.spot.saver.view.model.SpotLabelUiModel
 
 
 /**

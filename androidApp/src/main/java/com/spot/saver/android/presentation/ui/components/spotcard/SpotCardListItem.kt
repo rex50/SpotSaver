@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.spot.saver.models.ui.SpotDetailUiModel
+import com.spot.saver.view.model.SpotDetailUiModel
 import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedComponentPreviews
 
