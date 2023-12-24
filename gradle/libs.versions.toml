@@ -10,6 +10,8 @@ androidx-activityCompose = "1.7.2"
 androidx-lifecycle = "2.6.2"
 koin = "3.3.2"
 coroutines-core = "1.7.3"
+ksp = "1.9.21-1.0.15"
+mutekt = "1.0.1"
 
 [libraries]
 glide-compose = { module = "com.github.bumptech.glide:compose", version.ref = "glide-compose" }
@@ -25,6 +27,8 @@ compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayou
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"  }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"  }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core"  }
+mutekt-core = { module = "dev.shreyaspatil.mutekt:mutekt-core", version.ref = "mutekt"  }
+mutekt-codegen = { module = "dev.shreyaspatil.mutekt:mutekt-codegen", version.ref = "mutekt"  }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -32,3 +36,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}

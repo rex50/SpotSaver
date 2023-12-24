@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -30,7 +31,11 @@ kotlin {
             dependencies {
                 implementation(libs.koin.core)
                 implementation(libs.kotlin.coroutines.core)
+                implementation(libs.mutekt.core)
             }
+
+            // For including generated classes in source
+            kotlin.srcDirs("build/generated/ksp/metadata/commonMain/kotlin")
         }
 
         val androidMain by getting {
@@ -44,6 +49,16 @@ kotlin {
                 implementation(libs.kotlin.test)
             }
         }
+    }
+}
+
+// MuteKt file generation
+dependencies {
+    add("kspCommonMainMetadata", libs.mutekt.codegen)
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
     }
 }
 
