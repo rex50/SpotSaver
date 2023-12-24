@@ -13,6 +13,6 @@ interface HomePageState : State {
     val error: String?
 
     companion object {
-        val initialState = HomeState(isLoading = true, savedSpots = emptyList(), error = null)
+        val initialState = HomePageState(isLoading = true, savedSpots = emptyList(), error = null)
     }
 }

@@ -43,10 +43,6 @@ fun HomePage(
     viewModel: HomePageViewModel
 ) {
 
-    LaunchedEffect(Unit) {
-        viewModel.fetchMySpots()
-    }
-
     val state by viewModel.state.collectAsState()
 
     val lazyListState = rememberLazyListState()
