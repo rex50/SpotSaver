@@ -26,6 +26,7 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-constraintlayout"  }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"  }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"  }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core"  }
 mutekt-core = { module = "dev.shreyaspatil.mutekt:mutekt-core", version.ref = "mutekt"  }
 mutekt-codegen = { module = "dev.shreyaspatil.mutekt:mutekt-codegen", version.ref = "mutekt"  }

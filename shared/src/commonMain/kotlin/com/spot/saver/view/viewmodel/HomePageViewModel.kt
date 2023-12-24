@@ -16,9 +16,6 @@ class HomePageViewModel(
     private val fetchSavedSpotsUseCase: FetchSavedSpotsUseCase
 ) : BaseViewModel<HomeState>() {
 
-    private val _savedSpots = MutableStateFlow<List<SpotDetailUiModel>>(emptyList())
-    val savedSpots = _savedSpots.asStateFlow()
-
     private val stateStore = StateStore(initialState = HomeState.initialState.mutable())
     override val state: StateFlow<HomeState> = stateStore.state
 

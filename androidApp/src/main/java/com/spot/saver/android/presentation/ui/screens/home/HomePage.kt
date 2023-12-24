@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,6 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
@@ -28,6 +31,7 @@ import com.spot.saver.android.presentation.ui.core.Preview
 import com.spot.saver.android.presentation.ui.core.ThemedDevicePreviews
 import com.spot.saver.android.presentation.ui.screens.home.components.AddNewSpotButton
 import com.spot.saver.android.presentation.ui.screens.home.components.HeaderHome
+import com.spot.saver.android.presentation.utils.koinViewModel
 import com.spot.saver.view.viewmodel.HomePageViewModel
 
 /**
@@ -35,14 +39,15 @@ import com.spot.saver.view.viewmodel.HomePageViewModel
  */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomePage() {
+fun HomePage(
+    viewModel: HomePageViewModel
+) {
 
-    // TODO: inject viewModel via Koin
-    val viewModel = remember {
-        HomePageViewModel()
+    LaunchedEffect(Unit) {
+        viewModel.fetchMySpots()
     }
 
-    val savedSpotsData by viewModel.savedSpots.collectAsState()
+    val state by viewModel.state.collectAsState()
 
     val lazyListState = rememberLazyListState()
 
@@ -72,6 +77,7 @@ fun HomePage() {
 
         LazyColumn(
             state = lazyListState,
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
@@ -88,7 +94,7 @@ fun HomePage() {
 
             stickyHeader {
                 SavedSpotsHeader(
-                    savedSpotsSize = savedSpotsData.size,
+                    savedSpotsSize = state.savedSpots.size,
                     sortedBy = "Expiring date",
                     modifier = Modifier
                         .then(if (elevateSavedSpotsHeader) Modifier.shadow(8.dp) else Modifier)
@@ -98,9 +104,19 @@ fun HomePage() {
                 ) {
                     // TODO: handle sort button click event
                 }
+
+                if(state.isLoading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .padding(32.dp)
+                            .width(24.dp),
+                        color = MaterialTheme.colorScheme.tertiary,
+                        trackColor = MaterialTheme.colorScheme.primary,
+                    )
+                }
             }
 
-            items(savedSpotsData) { spot ->
+            items(state.savedSpots) { spot ->
                 SpotCardListItem(
                     modifier = Modifier
                         .padding(horizontal = 20.dp),
@@ -122,6 +138,6 @@ fun HomePage() {
 @Composable
 private fun HomePagePreview() {
     Preview {
-        HomePage()
+        HomePage(koinViewModel())
     }
 }
