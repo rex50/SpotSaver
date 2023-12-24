@@ -18,7 +18,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
 }
 
 private val viewModelModule = module {
-    single { HomePageViewModel() }
+    single { HomePageViewModel(get()) }
 }
 
 private val domainModule = module {
