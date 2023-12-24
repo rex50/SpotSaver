@@ -3,8 +3,11 @@ package com.spot.saver.view.state
 import com.spot.saver.view.model.SpotDetailUiModel
 import dev.shreyaspatil.mutekt.core.annotations.GenerateMutableModel
 
+/**
+ * UI state for Home page
+ */
 @GenerateMutableModel
-interface HomeState : State {
+interface HomePageState : State {
     val isLoading: Boolean
     val savedSpots: List<SpotDetailUiModel>
     val error: String?
