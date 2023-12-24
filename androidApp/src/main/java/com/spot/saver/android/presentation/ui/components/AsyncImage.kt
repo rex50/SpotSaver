@@ -1,4 +1,4 @@
-package com.spot.saver.android.ui.components
+package com.spot.saver.android.presentation.ui.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
@@ -20,7 +20,7 @@ fun AsyncImage(
     modifier: Modifier = Modifier,
     loading: Placeholder? = null,
     failure: Placeholder? = null,
-    contentScale: ContentScale
+    contentScale: ContentScale = ContentScale.Fit
 ) {
     GlideImage(
         modifier = modifier,
