@@ -49,4 +49,6 @@ dependencies {
 
     // Using this library for Load images
     implementation(libs.glide.compose)
+
+    implementation(libs.koin.android)
 }

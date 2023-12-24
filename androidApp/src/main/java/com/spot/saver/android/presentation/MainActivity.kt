@@ -10,17 +10,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spot.saver.android.theme.SpotSaverTheme
 import com.spot.saver.android.presentation.ui.screens.home.HomePage
+import com.spot.saver.android.presentation.utils.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SpotSaverTheme {
+            SpotSaverTheme(darkTheme = false) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomePage()
+                    HomePage(koinViewModel())
                 }
             }
         }
